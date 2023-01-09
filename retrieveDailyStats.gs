@@ -1,6 +1,7 @@
 function retrieveDailyStats(){
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet()
-  const flowers = sheet.getRange(4, 1, 13).getValues()
+  const numberOfFlowers = sheet.getRange(3,1).getValue()  
+  const flowers = sheet.getRange(4, 1, numberOfFlowers).getValues()
   const dates = sheet.getRange(1, 6, 1, 35).getDisplayValues()
   for( var flower in flowers){
     var datesCount = 0
@@ -14,5 +15,4 @@ function retrieveDailyStats(){
       }
     }
   }
-} 
-
+}
